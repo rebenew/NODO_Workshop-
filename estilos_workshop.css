@@ -1,0 +1,199 @@
+:root { 
+    --fuente-principal: "Anton SC", sans-serif ;
+    --fuente-secundaria: "Fira Sans", sans-serif ;
+    --color-fondo: rgb(255, 255, 255);
+    --color-tarjeta:#EEC4E8;
+    --color-letra: #555;
+    --color-titulos: #000;
+    --color-principal: #d86dda; 
+    --imagen-fondo: url(https://static.vecteezy.com/system/resources/previews/005/879/886/large_2x/purple-orange-watercolor-background-pastel-mottled-border-texture-and-blurred-grunge-design-in-old-vintage-backgrounds-free-vector.jpg);
+}
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+body { 
+    background-image:var(--imagen-fondo);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--fuente-secundaria);
+    font-size: medium;
+    margin: 4em 8em 0 6em;
+    
+}
+
+h1, h2 { 
+    color: var(--color-titulos);
+    font-family: var(--fuente-principal);
+    font-weight: 100;
+    font-size: 40px;
+}
+
+h1:hover, h2:hover {
+    color: #960796;
+    transition: color 0.5s ease;
+}
+
+ul {
+    list-style-position: outside
+}
+
+ul li:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--color-principal);
+}
+
+img { 
+    margin: 5px;
+}
+.container {
+    display: flex;
+    max-width: 100%;
+    margin: 20px auto;
+    gap: 3em;
+    padding: 20px;
+}
+
+.card {
+    flex: 0 0 260px;
+    height: 20%;
+    background-color: var(--color-tarjeta);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.8s ease forwards;
+}
+
+.card:hover { 
+    background: linear-gradient(135deg, var(--color-principal), #bde5f1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: background-color 1.8s ease-in-out, box-shadow 0.3s, transform 0.3s;
+}
+
+.card a > :nth-last-child(-n+2) { 
+    margin: 10px;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.card a > :nth-last-child(-n+2):hover { 
+    transform: scale(1.1);
+}
+.card a { 
+    margin: 5px;
+}
+
+.card p:last-of-type {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.content {
+    flex: 1;
+    max-width: 100% ;
+    background-color:var(--color-fondo);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.8s ease forwards;
+}
+.content:hover { 
+    box-shadow: 0 0 30px var(--color-principal);
+    transition: box-shadow 0.4s ease;
+}
+
+
+.about, .experience { 
+    border-bottom: 3px groove var(--color-tarjeta);
+    padding: 0 3rem 3rem 3rem ;
+}
+.about p { 
+    margin: 1rem 0;
+    color: var(--color-letra);
+    line-height: 1.8;
+}
+
+.education-habilities {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 20px; 
+    color: var(--color-letra);
+    padding-left: 25px;
+}
+
+
+.education, .habilities {
+    flex: 1; 
+    padding: 20px;
+    line-height: 1.0;
+    padding-left: 25px;
+}
+.experience{ 
+    border-bottom: 3px groove var(--color-tarjeta);
+    color: var(--color-letra);
+    line-height: 1.5;
+}
+
+ @media (max-width:600px){
+    body { 
+        margin: 5%;
+        padding: 0 10px;
+        text-align: center;
+    }
+    .card { 
+        flex: 0 0 80%;
+        line-height: 1.3;
+        margin: 0 auto;
+    }
+    .card:active {
+        transition: scale(0.95);
+        background: linear-gradient(135deg, var(--color-principal), #bde5f1);
+    }
+    .card p{ 
+        font-size: large;
+    }
+    .container { 
+        padding: 0;
+        width: 100%;
+    }
+    .content, .education-habilities{ 
+        display: none;
+    }
+}
+@media (min-width:601px) and (max-width:910px) { 
+    body { 
+        margin-top: 1em;
+        margin-right: 6em;
+        padding: 0 10px;
+        text-align: center;
+    }
+    .card, .content, .education-habilities{
+        flex: 0 1 100%;
+        margin: 0 auto;
+    }
+
+    .container, .education-habilities { 
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+    }
+    .content{ 
+        padding: 0;
+    }
+}
